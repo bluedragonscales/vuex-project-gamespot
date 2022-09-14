@@ -3,6 +3,7 @@
 
 	<!-- The header imported from the components file. -->
 	<app-header></app-header>
+	<!-- The router view brings in all of the different application paths. -->
 	<router-view></router-view>
     
 </template>

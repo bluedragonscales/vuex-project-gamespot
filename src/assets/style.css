@@ -3,94 +3,64 @@ body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
+    box-sizing: border-box;
+    cursor: default;
 }
 
-/* :root {
+:root {
     --dark: #524948;
-    --blue: #7CB4B8;
+    --blue: #179BA4;
     --grape: #57467B;;
     --marine: #70F8BA;
     --lime: #CAFE48;
     --light:#f8f9fa;
-} */
-
-/* .p_top{
-    padding-top: 130px;
-} */
-
-/* .small_link {
-    font-size: 12px;
-    background: #F44336;
-} */
-
-/* .button_default:hover {
-    background: #2b2b2b;;
-    color: #ffffff;
-} */
-
-/* .page_loader {
-    text-align: center;
-    padding-top: 20vh
-} */
+}
 
 
-/*================================
-            HEADER FOOTER
-==================================*/
-/* header {
-    background:var(--blue);
-    border-bottom:2px solid var(--grape);
-    color:white;
-    position:fixed;
-    width:100%;
-    z-index: 9999;
-} */
+/* HEADER STYLING */
+header {
+    background: var(--blue);
+    border-bottom: 2px solid var(--grape);
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+}
 
-/* header .header_container {
-    display: flex;
-    padding: 30px 0px;
-} */
-
-/* header .header_container .logo { 
+header .header-container .logo { 
     flex-grow: 1;
     font-family: 'Bungee Inline', cursive;
-    font-size: 30px;
-} */
+    font-size: 2.5rem;
+}
 
-/* header .header_container .logo a{ 
+header .header-container .logo a{ 
     text-decoration: none;
-    color:#ffffff;
-} */
+}
 
-/* header ul {
-    margin-top: 7px;
-} */
-
-/* header ul li {
+header ul li {
     display: inline;
-    margin-right: 20px;
-    font-size: 20px;
-} */
+    margin-right: 1.8rem;
+    font-size: 1.3rem;
+}
 
-/* header ul li a {
+header ul li a {
     color:#ffffff;
     text-decoration: none;
     font-weight: 100;
-} */
+}
 
-/* header ul li a:hover {
+header ul li a:hover {
     text-decoration: none !important;
     color: #0dcaf0;
-} */
+}
 
-/* header ul li span {
+header ul li span {
     cursor: pointer;
     font-weight: 100;
-} */
+}
 
-/* header ul li span:hover {
+header ul li span:hover {
     color: #0dcaf0;
-} */
+}
 
 /* footer {
     background: #191919;
@@ -453,4 +423,26 @@ padding-bottom: 100px;
     margin-right: 5px;
     cursor: pointer;
 
+} */
+
+
+
+/* PAGE LOADER STYLING */
+/* .p_top{
+    padding-top: 130px;
+} */
+
+/* .small_link {
+    font-size: 12px;
+    background: #F44336;
+} */
+
+/* .button_default:hover {
+    background: #2b2b2b;;
+    color: #ffffff;
+} */
+
+/* .page_loader {
+    text-align: center;
+    padding-top: 20vh
 } */
