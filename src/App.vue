@@ -1,6 +1,32 @@
 <template>
 	<!-- MAIN APP FILE -->
 
-	<h1>Gamespot App</h1>
+	<!-- The header imported from the components file. -->
+	<app-header></app-header>
+	<router-view></router-view>
     
 </template>
+
+
+
+<script>
+	import AppHeader from './components/CompHeader.vue';
+
+	export default {
+		data() {
+			return {
+
+			}
+		},
+		components: {
+			AppHeader
+		}
+	}
+
+</script>
+
+
+
+<style>
+	@import './assets/style.css';
+</style>

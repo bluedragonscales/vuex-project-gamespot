@@ -1,192 +1,193 @@
 body {
-    padding:0;
-    margin:0;
+    padding: 0;
+    margin: 0;
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
 }
 
-:root {
+/* :root {
     --dark: #524948;
     --blue: #7CB4B8;
     --grape: #57467B;;
     --marine: #70F8BA;
     --lime: #CAFE48;
     --light:#f8f9fa;
-}
+} */
 
-
-.p_top{
+/* .p_top{
     padding-top: 130px;
-}
+} */
 
-
-.small_link {
+/* .small_link {
     font-size: 12px;
     background: #F44336;
-}
-.button_default:hover {
+} */
+
+/* .button_default:hover {
     background: #2b2b2b;;
     color: #ffffff;
-}
+} */
 
-.page_loader {
+/* .page_loader {
     text-align: center;
     padding-top: 20vh
-}
+} */
 
 
 /*================================
             HEADER FOOTER
 ==================================*/
-header {
+/* header {
     background:var(--blue);
     border-bottom:2px solid var(--grape);
     color:white;
     position:fixed;
     width:100%;
     z-index: 9999;
-}
+} */
 
-
-header .header_container {
+/* header .header_container {
     display: flex;
     padding: 30px 0px;
-}
+} */
 
-header .header_container .logo { 
+/* header .header_container .logo { 
     flex-grow: 1;
     font-family: 'Bungee Inline', cursive;
     font-size: 30px;
-}
-header .header_container .logo a{ 
+} */
+
+/* header .header_container .logo a{ 
     text-decoration: none;
     color:#ffffff;
-}
+} */
 
-header ul {
+/* header ul {
     margin-top: 7px;
-}
+} */
 
-header ul li {
+/* header ul li {
     display: inline;
     margin-right: 20px;
     font-size: 20px;
-}
+} */
 
-header ul li a {
+/* header ul li a {
     color:#ffffff;
     text-decoration: none;
     font-weight: 100;
-}
-header ul li a:hover {
+} */
+
+/* header ul li a:hover {
     text-decoration: none !important;
     color: #0dcaf0;
-}
-header ul li span {
+} */
+
+/* header ul li span {
     cursor: pointer;
     font-weight: 100;
-}
-header ul li span:hover {
-    color: #0dcaf0;
-}
+} */
 
-footer {
+/* header ul li span:hover {
+    color: #0dcaf0;
+} */
+
+/* footer {
     background: #191919;
     color: #ffffff;
-}
+} */
 
-footer .logo {
+/* footer .logo {
     font-family: 'Bungee Inline', cursive;
     font-size: 30px;
     line-height: 121px;
     text-align: center;
-}
+} */
 
 
 /*================================
                 SLIDER
 ==================================*/
-.carousel__pagination {
+/* .carousel__pagination {
     padding-left: 0px;
-}
+} */
 
-.slider_bck {
+/* .slider_bck {
     height: 560px;
     width: 100%;
     background-size: cover !important;
     background-repeat: no-repeat !important;
     position: relative;
     
-}
+} */
 
-.slide_content {
+/* .slide_content {
     position: absolute;
     bottom: 20px;
     text-align: left;
     width: 50%;
-}
+} */
 
-.slide_content .item {
+/* .slide_content .item {
     background: #191919b3;
     color: #fff;
     box-sizing: border-box;
     padding: 20px;
     font-size: 15px;
     font-weight: 100;
-}
+} */
 
-.slide_content .item div:first-child {
+/* .slide_content .item div:first-child {
     font-size: 25px;
     font-weight: bold;
-}
+} */
 
-
-.home_container {
+/* .home_container {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-}
+} */
   
-.home_container .md-card {
+/* .home_container .md-card {
     box-sizing: border-box;
     margin-bottom: 10px;
     width: calc(1/3*100% - (1 - 1/3)*10px);
-}
+} */
 
-
-.featured-home {
+/* .featured-home {
     background-color: var(--light);
     padding: 20px
-}
-.article_card{
+} */
+
+/* .article_card{
     margin-top: 10px;
-}
+} */
 
 
 /*================================
                 sign in
 ==================================*/
 
-.signin_container {
+/* .signin_container {
     padding-top: 200px;
     height: 90vh;
-}
+} */
 
-.signin_container h1 {
+/* .signin_container h1 {
     text-align: center;
     color: #797979;
-}
+} */
 
-.signin_container label {
+/* .signin_container label {
     display: block;
     font-size: 17px;
     font-weight: 300;
     margin-bottom: 12px;
-}
+} */
 
-.signin_container input {
+/* .signin_container input {
     margin-bottom: 13px;
     width: 100%;
     font-size: 16px;
@@ -194,42 +195,39 @@ footer .logo {
     box-shadow: none;
     background: #f6f6f6;
     padding: 10px;
-}
+} */
 
-.signin_container .form_swap {
+/* .signin_container .form_swap {
     cursor: pointer;
     font-weight: 100;
     font-size: 16px;
     color: var(--grape);
-}
+} */
 
-.signin_container button {
+/* .signin_container button {
     width: 100%;
     background: var(--grape);
     color: #fff;
-}
+} */
 
-.signin_container button:hover {
+/* .signin_container button:hover {
     color:var(--grape);
     border:1px solid var(--grape);
     background: none;
-}
+} */
 
-.input_alert  {
+/* .input_alert  {
     color: red;
     font-weight: bold;
     margin-bottom: 20px;
-}
+} */
 
-.dashboard_form {
+/* .dashboard_form {
     width: 560px;
     margin-bottom: 100px;
-}
+} */
 
-
-
-
-.dashboard_form .input_field input{
+/* .dashboard_form .input_field input{
     width: 100%;
     font-size: 20px;
     border-radius: 3px;
@@ -237,28 +235,29 @@ footer .logo {
     border: 1px solid #dbdbdb;
     background: #f6f6f6;
     padding: 10px;
-}
+} */
 
-.dashboard_form .input_field select {
+/* .dashboard_form .input_field select {
     width: 100%;
     font-size: 20px;
     border: 1px solid #dbdbdb;
-}
-.dashboard_form h1 {
+} */
+
+/* .dashboard_form h1 {
     color: #434343;
     text-transform: uppercase;
     border-bottom: 1px solid #b8b8b8;
     margin: 20px 0px;
     line-height: 51px;
-}
+} */
 
-.signin_container form {
+/* .signin_container form {
     width:400px;
     margin:0 auto;
     border: 1px solid #d2d2d2;
     box-sizing: border-box;
     padding: 20px;
-}
+} */
 
 
 
@@ -268,188 +267,185 @@ footer .logo {
 ==================================*/
 
 
-.article_page {
+/* .article_page {
 padding-bottom: 100px;
-}
+} */
 
-.article_page .article_featured {
+/* .article_page .article_featured {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: top;
     width: 100%;
     height: 500px;
-}
+} */
 
-.article_page .article_content {
+/* .article_page .article_content {
     margin-top: 50px;
-}
+} */
 
-.article_page .article_content h1 {
+/* .article_page .article_content h1 {
     font-weight: bold;
     font-size: 60px;
-}
+} */
 
-.article_page .article_content .editor {
+/* .article_page .article_content .editor {
     font-size: 17px;
-}
+} */
 
-.article_page .game_tag {
+/* .article_page .game_tag {
     background: var(--grape);
     display: inline-block;
     font-size: 21px;
     padding: 5px 10px;
     color: white;
     font-weight: 100;
-}
+} */
 
-.article_page .article_rating {
+/* .article_page .article_rating {
     padding: 20px;
     background: var(--dark);
     display: inline-block;
     font-size: 33px;
     color: white;
     font-weight: 100;
-}
+} */
 
 
 /*================================
            DASHBOARD
 ==================================*/
 
-  .sidebar {
+  /* .sidebar {
     position: fixed;
     top: 80px;
-    /* rtl:raw:
-    right: 0;
-    */
     bottom: 0;
-    /* rtl:remove */
     left: 0;
-    z-index: 100; /* Behind the navbar */
-    padding: 48px 0 0; /* Height of navbar */
+    z-index: 100;
+    padding: 48px 0 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
-  }
+  } */
   
-  @media (max-width: 767.98px) {
+  /* @media (max-width: 767.98px) {
     .sidebar {
       top: 5rem;
     }
-  }
+  } */
   
-  .sidebar-sticky {
+  /* .sidebar-sticky {
     position: relative;
     top: 0;
     height: calc(100vh - 48px);
     padding-top: .5rem;
     overflow-x: hidden;
-    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
-  }
+    overflow-y: auto;
+  } */
   
-  .sidebar .nav-link {
+  /* .sidebar .nav-link {
     font-weight: 500;
     color: #333;
-  }
+  } */
   
-  .sidebar .nav-link .feather {
+  /* .sidebar .nav-link .feather {
     margin-right: 4px;
     color: #727272;
-  }
+  } */
   
 
-  .sidebar .nav-link:hover .feather,
+  /* .sidebar .nav-link:hover .feather,
   .sidebar .nav-link.active .feather {
     color: inherit;
-  }
+  } */
   
-  .sidebar-heading {
+  /* .sidebar-heading {
     font-size: .75rem;
     text-transform: uppercase;
-  }
+  } */
 
-#sidebarMenu .nav-item {
+/* #sidebarMenu .nav-item {
     border-bottom: 1px solid #e5e5e5;
-}
+} */
 
 
-.error_label {
+/* .error_label {
     color:red;
-}
+} */
 
-.md-dialog {
+/* .md-dialog {
     background: #ffffff;
     box-sizing: border-box;
     padding: 20px;
-}    
+}     */
 
-.md-dialog .md-button {
+/* .md-dialog .md-button {
     color: #607D8B;
-}
+} */
 
-.md-table-cell {
+/* .md-table-cell {
     max-width: 290px;
-}
+} */
 
-.post_succesfull{
+/* .post_succesfull{
     font-size: 20px;
     background: #4CAF50;
     color: #ffffff;
     padding: 10px;
     text-align: center;
     margin-top: 20px;
-}
+} */
 
-.dashboard_welcome {
+/* .dashboard_welcome {
     height: 70vh;
     font-size: 20px;
-}
+} */
 
-.load_more {
+/* .load_more {
     cursor:pointer;
     text-align: center;
     margin: 20px;
-}
+} */
 
-.load_more .button_default { 
+/* .load_more .button_default { 
     font-size: 21px;
     line-height: 33px;
     font-weight: 800;
     background: #2a2a2a;
-}   
+}    */
 
-.post_delete{ 
+/* .post_delete{ 
     color: #F44336;
     font-weight: 700;  
-}
+} */
 
-.not_found {
+/* .not_found {
     text-align: center;
-}
+} */
 
-.not_found .anticon {
+/* .not_found .anticon {
     font-size: 174px;
     color: #dc3545;
-}
-.not_found h1{
+} */
+
+/* .not_found h1{
     margin-top: 20px;
     font-size: 61px;
     font-weight: 100;
-}
+} */
 
 
-.awesome_editor .ProseMirror {
+/* .awesome_editor .ProseMirror {
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius:.25rem;
     min-height: 250px;
-}
+} */
 
-.awesome_editor .btn_container {
+/* .awesome_editor .btn_container {
     border-top: 1px solid #dfdfdf;
     margin-top: 20px;
     padding: 10px 0px;
-}
+} */
 
-.awesome_editor .btn_container span {
+/* .awesome_editor .btn_container span {
     background: var(--grape);
     color: white;
     display: inline-block;
@@ -457,4 +453,4 @@ padding-bottom: 100px;
     margin-right: 5px;
     cursor: pointer;
 
-}
+} */
