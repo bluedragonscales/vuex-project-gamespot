@@ -1,6 +1,25 @@
 <template>
+    <!-- ARTICLE PAGE COMPONENT -->
 
-    <div class="container p-top article-page">
+    <!-- This is the content of the individual article for each game. -->
+    <div class="container p-top article-page" v-if="articleData">
+        <div><p class="game-tag">{{articleData.game}}</p></div>
+
+        <div class="article-featured" :style="{backgroundImage: `url(${articleData.img})`}"></div>
+
+        <div class="article-content">
+            <p class="owner">Article written by <strong>{{articleData.owner.firstname}} {{articleData.owner.lastname}}</strong></p>
+
+            <hr>
+
+            <h1>{{articleData.title}}</h1>
+
+            <div class="editor" v-html="articleData.editor"></div>
+        </div>
+
+        <div>
+            <p class="article-rating">Our rating: <strong>{{articleData.rating}}</strong></p>
+        </div>
 
     </div>
 
@@ -26,7 +45,7 @@
                     timestamp: '01/01/01',
                     img: 'http://placebeard.it/1080/720',
                     excerpt: 'Magnam maiores ratione fugit delectus culpa, porro id possimus soluta assumenda alias vitae temporibus error! Quas deleniti provident beatae sit assumenda quam.',
-                    editor: '<p>Magnam maiores ratione fugit delectus culpa, porro id possimus soluta assumenda alias vitae temporibus error! Quas deleniti provident beatae sit assumenda quam.</p><p>Magnam maiores ratione fugit delectus culpa, porro id possimus soluta assumenda alias vitae temporibus error! Quas deleniti provident beatae sit assumenda quam.</p><p>Magnam maiores ratione fugit delectus culpa, porro id possimus soluta assumenda alias vitae temporibus error! Quas deleniti provident beatae sit assumenda quam.</p>'
+                    editor: '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus et excepturi, impedit cum molestias eveniet laudantium, iste dignissimos consequuntur doloribus minima rem provident quo quia enim? Deleniti dolorum quas laudantium!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus et excepturi, impedit cum molestias eveniet laudantium, iste dignissimos consequuntur doloribus minima rem provident quo quia enim? Deleniti dolorum quas laudantium!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus et excepturi, impedit cum molestias eveniet laudantium, iste dignissimos consequuntur doloribus minima rem provident quo quia enim? Deleniti dolorum quas laudantium!</p>'
                 }
             }
         }
