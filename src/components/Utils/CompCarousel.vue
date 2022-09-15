@@ -4,7 +4,7 @@
     <carousel class="p-top" :items-to-show="1" :wrap-around="true">
         <slide v-for="slide in slides" :key="slide.id">
             <!-- This div is the background of the slide. -->
-            <div class="slider-backg" :style="{background: `url(http://placebeard.it/1080/720)`}">
+            <div class="slider-backg" :style="{background: `url(http://placebeard.it/1080/720?${slide.id})`}">
                 <!-- This div is for the content of the slide. -->
                 <div class="slide-content">
                     <!-- This div is for styling the title and paragraph box into the bottom left corner of the slide. -->
@@ -31,20 +31,12 @@
     import { Carousel, Slide, Pagination } from 'vue3-carousel';
 
     export default {
-        data() {
-            return {
-                slides: [
-                    {id: 1},
-                    {id: 2},
-                    {id: 3}
-                ]
-            }
-        },
         components: {
             Carousel,
             Slide,
             Pagination
-        }
+        },
+        props: ['slides']
     }
 
 </script>

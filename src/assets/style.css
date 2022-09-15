@@ -16,6 +16,10 @@ body {
     --light:#f8f9fa;
 }
 
+.p-top{
+    padding-top: 130px;
+}
+
 
 /* HEADER STYLING */
 header {
@@ -75,11 +79,8 @@ header ul li span:hover {
 
 
 
-/* CAROUSEL SLIDER STYLING */
-.p-top{
-    padding-top: 130px;
-}
 
+/* CAROUSEL SLIDER STYLING */
 /* .carousel__pagination {
     padding-left: 0px;
 } */
@@ -113,6 +114,7 @@ header ul li span:hover {
     font-weight: bold;
     color: white;
 } */
+
 
 
 
@@ -238,14 +240,10 @@ header ul li span:hover {
 
 
 
-/*================================
-           POST
-==================================*/
-
-
-/* .article_page {
-padding-bottom: 100px;
-} */
+/* ARTICLE PAGE STYLING */
+.article-page {
+    padding-bottom: 100px;
+}
 
 /* .article_page .article_featured {
     background-size: cover;
