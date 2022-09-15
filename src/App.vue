@@ -11,7 +11,7 @@
 
 
 <script>
-	import AppHeader from './components/CompHeader.vue';
+	import AppHeader from './components/Utils/CompHeader.vue';
 
 	export default {
 		data() {
