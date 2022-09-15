@@ -17,7 +17,7 @@ body {
 }
 
 .p-top{
-    padding-top: 130px;
+    padding-top: 10.5rem;
 }
 
 
@@ -149,57 +149,67 @@ header ul li span:hover {
 
 
 /* SIGN IN STYLING */
-/* .signin_container {
+/* .signin-container {
     padding-top: 200px;
     height: 90vh;
 } */
 
-/* .signin_container h1 {
+.signin-container h1 {
     text-align: center;
     color: #797979;
-} */
+}
 
-/* .signin_container label {
+.signin-container form {
+    width: 34rem;
+    margin: 0 auto;
+    border: 1px solid #d2d2d2;
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* .signin-container label {
     display: block;
     font-size: 17px;
     font-weight: 300;
     margin-bottom: 12px;
 } */
 
-/* .signin_container input {
-    margin-bottom: 13px;
-    width: 100%;
-    font-size: 16px;
+.signin-container input {
+    margin-top: 2rem;
+    margin-bottom: 1.4rem;
+    font-size: 1.5rem;
     border-radius: 3px;
     box-shadow: none;
     background: #f6f6f6;
     padding: 10px;
-} */
+}
 
-/* .signin_container .form_swap {
+.form-swap p {
     cursor: pointer;
     font-weight: 100;
-    font-size: 16px;
+    font-size: 1.3rem;
     color: var(--grape);
-} */
+}
 
-/* .signin_container button {
+.signin-container button {
     width: 100%;
     background: var(--grape);
     color: #fff;
-} */
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
 
-/* .signin_container button:hover {
-    color:var(--grape);
-    border:1px solid var(--grape);
+.signin-container button:hover {
+    color: var(--grape);
+    border: 1px solid var(--grape);
     background: none;
-} */
+}
 
-/* .input_alert  {
+.input-alert  {
     color: red;
     font-weight: bold;
-    margin-bottom: 20px;
-} */
+    margin-bottom: 1.3rem;
+}
 
 /* .dashboard_form {
     width: 560px;
@@ -228,14 +238,6 @@ header ul li span:hover {
     border-bottom: 1px solid #b8b8b8;
     margin: 20px 0px;
     line-height: 51px;
-} */
-
-/* .signin_container form {
-    width:400px;
-    margin:0 auto;
-    border: 1px solid #d2d2d2;
-    box-sizing: border-box;
-    padding: 20px;
 } */
 
 
