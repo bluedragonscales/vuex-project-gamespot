@@ -1,5 +1,31 @@
 <template>
+    <!-- INDIVIDUAL ARTICLE CARD COMPONENT -->
 
-    
+    <a-col :span="6" class="article-card">
+        <!-- Making the card clickable to lead to an article. -->
+        <router-link to="/articles">
+            <!-- The card will be the full width of the column. -->
+            <a-card hoverable style="width: 100%;">
+                <template #cover>
+                    <!-- Image at the top of the card. -->
+                    <img src="http://placebeard.it/1080/720" alt="article image">
+                </template>
+                <!-- Content of the card. -->
+                <h3>Lorem Title</h3>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque vitae eius laborum consequatur, dolores nihil dolor, deserunt excepturi sint aut, necessitatibus sed aspernatur praesentium temporibus quibusdam facere cum repellat saepe?</p>
+            </a-card>
+        </router-link>
+    </a-col>
 
 </template>
+
+
+
+<script>
+
+    export default {
+        // Passing these props to the main featured section component.
+        props: ['article', 'index']
+    }
+
+</script>

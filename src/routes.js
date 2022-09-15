@@ -1,7 +1,7 @@
 // ROUTES FILE
 /*eslint-disable*/
 import { createRouter, createWebHistory, START_LOCATION } from "vue-router";
-import Home from './components/CompHome.vue';
+import Home from './components/Home/CompHome.vue';
 
 // These are the vue routes to navigate between the different pages/paths of our application.
 const routes = createRouter({
