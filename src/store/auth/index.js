@@ -102,6 +102,7 @@ const authModule = {
 
             } catch(error) {
                 console.log(error);
+                msgError(commit);
             }
         }
     }

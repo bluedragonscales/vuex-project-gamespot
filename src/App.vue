@@ -24,10 +24,19 @@
 				toastMsg: 'notify/getToastMsg'
 			})
 		},
-		// This watch section is for everything we want to watch for changes.
+		// This watch section is for everything we want to watch for changes in mapGetters. The names of the watch methods have to match the names of the mapGetters' keys.
 		watch: {
-			watchToast(toastMsg) {
-				console.log(toastMsg);
+			toastMsg(toastMsg) {
+				if(toastMsg[0]) {
+					// If the first index of the toast message array is true.
+					if(toastMsg[2] === 'error') {
+						// If the third index of the toast message array is "error" then use the error toast with the message in the second index.
+						this.$toast.error(toastMsg[1]);
+					} else if(toastMsg[2] === 'success') {
+						// Else if the third index of the toast message array is "success" then use the success toast with the message in the second index.
+						this.$toast.success(toastMsg[1]);
+					}
+				}
 			}
 		}
 	}
