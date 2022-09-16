@@ -2,9 +2,11 @@
 
 // This is the authentication module for all the functions needed for the application's authentication.
 const authModule = {
+    namespaced: true,
     state() {
         return {
-
+            user: '',
+            auth: false
         }
     }
 };

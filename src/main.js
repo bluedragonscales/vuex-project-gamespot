@@ -5,6 +5,7 @@ import 'ant-design-vue/dist/antd.css';
 import Store from './store';
 import Toaster from "@meforma/vue-toaster";
 import Router from './routes.js';
+import './firebase';
 
 // Created an instance of the createApp library so that we can inject customized modules and libraries into our application.
 const app = createApp(App);
