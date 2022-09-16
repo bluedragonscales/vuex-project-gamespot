@@ -86,7 +86,7 @@
             onSubmit(values, {resetForm}) {
                 if(!this.type) {
                     // If the type variable is false, the form will be for sign IN.
-                    console.log(values, "SIGN IN");
+                    this.$store.dispatch('auth/signIn', values);
                 } else {
                     // If the type variable is true, the form will be for sign UP.
                     this.$store.dispatch('auth/signUp', values);

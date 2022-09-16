@@ -12,15 +12,23 @@
 
 <script>
 	import AppHeader from './components/Utils/CompHeader.vue';
+	import { mapGetters } from 'vuex';
 
 	export default {
-		data() {
-			return {
-
-			}
-		},
 		components: {
 			AppHeader
+		},
+		computed: {
+			// This mapGetters import is an import of ALL of the getters on the vuex app.
+			...mapGetters({
+				toastMsg: 'notify/getToastMsg'
+			})
+		},
+		// This watch section is for everything we want to watch for changes.
+		watch: {
+			watchToast(toastMsg) {
+				console.log(toastMsg);
+			}
 		}
 	}
 
