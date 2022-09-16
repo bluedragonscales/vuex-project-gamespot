@@ -24,6 +24,7 @@ const fireAuth = getAuth();
 const db = getFirestore();
 
 
+
 // Exporting all the instances created.
 export {
     firebaseApp,
