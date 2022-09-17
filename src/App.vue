@@ -3,8 +3,12 @@
 
 	<!-- The header imported from the components file. -->
 	<app-header></app-header>
-	<!-- The router view brings in all of the different application paths. -->
-	<router-view></router-view>
+	<!-- The router view brings in all of the different application paths. If the application is not loading then show the application. Otherwise show the loader icon. -->
+	<router-view v-if="!isLoading"></router-view>
+
+	<div v-else class="page-loader">
+		LOADING
+	</div>
     
 </template>
 
@@ -21,7 +25,8 @@
 		computed: {
 			// This mapGetters import is an import of ALL of the getters on the vuex app.
 			...mapGetters({
-				toastMsg: 'notify/getToastMsg'
+				toastMsg: 'notify/getToastMsg',
+				isLoading: 'notify/getLoadingValue'
 			})
 		},
 		// This watch section is for everything we want to watch for changes in mapGetters. The names of the watch methods have to match the names of the mapGetters' keys.

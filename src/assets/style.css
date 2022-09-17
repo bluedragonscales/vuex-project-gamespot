@@ -442,6 +442,7 @@ header ul li span:hover {
 
 
 
+
 /* PAGE LOADER STYLING */
 /* .small_link {
     font-size: 12px;
@@ -453,7 +454,7 @@ header ul li span:hover {
     color: #ffffff;
 } */
 
-/* .page_loader {
+.page-loader {
     text-align: center;
     padding-top: 20vh
-} */
+}

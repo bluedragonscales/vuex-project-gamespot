@@ -2,7 +2,7 @@
 
 
 // This arrow function uses a switch block to logic out what to do in each of the firebase error codes.
-const firebaseErrors = (code) => {
+const fbErrors = (code) => {
 
     // The initial/default variable for the message.
     let msg = 'Sorry, try again.';
@@ -12,7 +12,7 @@ const firebaseErrors = (code) => {
         // This case is firebases' "auth/user-not-found" code.
         case 'auth/user-not-found':
             // Making that user-not-found code into a better sentence.
-            msg = 'Sorry, user was not found. Please check credentials.';
+            msg = 'Sorry, the email or password is incorrect.';
             break;
         // A different firebase code.
         case 'auth/email-already-in-use':
@@ -20,7 +20,7 @@ const firebaseErrors = (code) => {
             break;
         // A different firebase code.
         case 'auth/wrong-password':
-            msg = 'Sorry, this password is incorrect.';
+            msg = 'Sorry, the email or password is incorrect.';
             break;
         default:
             msg = code;
@@ -33,4 +33,4 @@ const firebaseErrors = (code) => {
 
 
 // Exporting this function so that it can be used in parts of the application that needs error codes.
-export default firebaseErrors;
+export default fbErrors;

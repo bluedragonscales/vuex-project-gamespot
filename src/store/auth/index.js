@@ -5,7 +5,7 @@ import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'fireba
 import {doc, setDoc, getDoc} from 'firebase/firestore';
 import router from '../../routes';
 import {msgError, msgSuccess} from '../../tools/vuex.js';
-import {firebaseErrors} from '../../tools/fbalerts';
+import fbErrors from '../../tools/fbalerts.js';
 
 
 // This is the default user information for signing up and signing in.
@@ -65,8 +65,7 @@ const authModule = {
                 router.push('/user/dashboard');
 
             } catch(error) {
-                console.log(error);
-                msgError(commit, firebaseErrors(error.code));
+                msgError(commit, fbErrors(error.code));
             }
         },
         async getUserProfile({commit}, payload) {
@@ -98,12 +97,12 @@ const authModule = {
                 const userData = await dispatch('getUserProfile', userCredential.user.uid);
                 // If the user exists in the database, we will commit the data returned to the mutation "setUser".
                 commit('setUser', userData);
-                // Once the user signs in successfully, they will be pushed to their dashboard.
+                // Once the user signs in successfully, they will get a welcome toast and be pushed to their dashboard.
+                msgSuccess(commit, 'Welcome!');
                 router.push('/user/dashboard');
 
             } catch(error) {
-                console.log(error);
-                msgError(commit, firebaseErrors(error.code));
+                msgError(commit, fbErrors(error.code));
             }
         }
     }
