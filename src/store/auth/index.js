@@ -4,7 +4,8 @@ import {db, fireAuth} from '../../firebase';
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
 import {doc, setDoc, getDoc} from 'firebase/firestore';
 import router from '../../routes';
-import {msgError, msgSuccess} from '../../tools/vuex';
+import {msgError, msgSuccess} from '../../tools/vuex.js';
+import {firebaseErrors} from '../../tools/fbalerts';
 
 
 // This is the default user information for signing up and signing in.
@@ -65,7 +66,7 @@ const authModule = {
 
             } catch(error) {
                 console.log(error);
-                msgError(commit);
+                msgError(commit, firebaseErrors(error.code));
             }
         },
         async getUserProfile({commit}, payload) {
@@ -102,7 +103,7 @@ const authModule = {
 
             } catch(error) {
                 console.log(error);
-                msgError(commit);
+                msgError(commit, firebaseErrors(error.code));
             }
         }
     }
