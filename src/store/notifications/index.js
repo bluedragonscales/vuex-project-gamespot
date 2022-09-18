@@ -8,7 +8,7 @@ const notificationsModule = {
             // For every toast there will be three parameters to pass: a boolean, the actual message, and the type of message (error, notification, etc).
             toastMsg: [false, '', 'error'],
             // The application is loading until the app is finished rendering.
-            loader: true
+            loader: false
         }
     },
     getters: {

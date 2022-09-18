@@ -7,7 +7,7 @@
 	<router-view v-if="!isLoading"></router-view>
 
 	<div v-else class="page-loader">
-		LOADING
+		<loader></loader>
 	</div>
     
 </template>
@@ -17,10 +17,12 @@
 <script>
 	import AppHeader from './components/Utils/CompHeader.vue';
 	import { mapGetters } from 'vuex';
+	import Loader from './components/Utils/CompLoader.vue';
 
 	export default {
 		components: {
-			AppHeader
+			AppHeader,
+			Loader
 		},
 		computed: {
 			// This mapGetters import is an import of ALL of the getters on the vuex app.

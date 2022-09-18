@@ -41,6 +41,8 @@ const authModule = {
         async signUp({commit}, payload) {
             // Since this is an async method, we can use a try/catch block instead of typing out the callback functions for the response and errors.
             try {
+                // We are setting the loading icon to true so that it will show while this async function is looking for a response. We set the root to true because "notify" is in a different module at the root from this auth module.
+                commit('notify/setLoaderValue', true, {root: true});
                 // Created an instance of firebase's library to create a user. It will await the loading of the rest of the app first, and then it uses the imported auth object and the payload's email and password to create a user with credentials specified on the front end.
                 const userCredential = await createUserWithEmailAndPassword(
                     fireAuth,
@@ -66,6 +68,9 @@ const authModule = {
 
             } catch(error) {
                 msgError(commit, fbErrors(error.code));
+            } finally {
+                // After everything is done loading, whether it's a good response or we get an error, the loading icon will no longer be needed so it will go back to the main screen.
+                commit('notify/setLoaderValue', false, {root: true});
             }
         },
         async getUserProfile({commit}, payload) {
@@ -86,6 +91,8 @@ const authModule = {
         },
         async signIn({commit, dispatch}, payload) {
             try {
+                // We are setting the loading icon to true so that it will show while this async function is looking for a response. We set the root to true because "notify" is in a different module at the root from this auth module.
+                commit('notify/setLoaderValue', true, {root: true});
                 // When signing in, the imported firebase library "signInWithEmailAndPassword" will populate the user needed to sign in.
                 const userCredential = await signInWithEmailAndPassword(
                     fireAuth,
@@ -103,6 +110,9 @@ const authModule = {
 
             } catch(error) {
                 msgError(commit, fbErrors(error.code));
+            } finally {
+                // After everything is done loading, whether it's a good response or we get an error, the loading icon will no longer be needed so it will go back to the main screen.
+                commit('notify/setLoaderValue', false, {root: true});
             }
         }
     }
