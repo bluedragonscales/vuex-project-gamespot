@@ -38,7 +38,7 @@ const routes = createRouter({
 const routeAuth = getAuth();
 
 // The route guards to guard against using the web domain as a way of getting past authentication.
-const validateCheck = (to, next) => {
+const validateCheck = (to, from, next) => {
     if(to.meta.auth && !store.getters['auth/getAuthValue']) {
         // If the route meta information states that the user has to be authenticated, but the getter value states that the user is NOT authenticated then they will be pushed to the signin route.
         next('/signin');
