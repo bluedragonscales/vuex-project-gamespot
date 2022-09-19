@@ -1,5 +1,17 @@
 <template>
 
-    <h2>User Profile Content</h2>
+    <dashboard-title title="Profile"></dashboard-title>
 
 </template>
+
+
+<script>
+    import DashboardTitle from '../../../Utils/DashboardTitle.vue';
+
+    export default {
+        components: {
+            DashboardTitle
+        }
+    }
+
+</script>

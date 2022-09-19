@@ -18,7 +18,7 @@
                     </ul>
 
                     <!-- This section will only be viewable to admins. -->
-                    <div>
+                    <div v-if="adminDValue">
                         <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-1 text-muted">Admin</h6>
 
                         <ul class="nav flex-column mb-2">
@@ -34,7 +34,7 @@
             </nav>
 
             <!-- This is the main content shown on the right. -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 dashboard-container">
                 <div>
                     <!-- This is the router view we need for the child paths of the dashboard route. -->
                     <router-view></router-view>
@@ -49,6 +49,7 @@
 
 <script>
     import {DashboardOutlined, UserOutlined, ProfileOutlined, PlusSquareOutlined} from '@ant-design/icons-vue';
+    import { mapGetters } from 'vuex';
 
     export default {
         components: {
@@ -57,6 +58,11 @@
             UserOutlined,
             ProfileOutlined,
             PlusSquareOutlined
+        },
+        computed: {
+            ...mapGetters({
+                adminDValue: 'auth/getAdminValue'
+            })
         }
     }
 
