@@ -338,10 +338,10 @@ header ul li span:hover {
     color: inherit;
 }
   
-  /* .sidebar-heading {
+.sidebar-heading {
     font-size: .75rem;
     text-transform: uppercase;
-  } */
+}
 
 .nav-item {
     border-bottom: 1px solid #e5e5e5;

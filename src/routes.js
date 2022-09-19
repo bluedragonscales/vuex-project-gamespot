@@ -9,6 +9,8 @@ import store from './store';
 import Dashboard from './components/User/Dashboard/CompIndex.vue';
 import MainDash from './components/User/Dashboard/MainDashboard.vue';
 import UserProfile from './components/User/Dashboard/userpages/UserProfile.vue';
+import AddArticles from './components/User/Dashboard/adminpages/AddArticles.vue';
+import ViewArticles from './components/User/Dashboard/adminpages/ViewArticles.vue';
 
 // These are the vue routes to navigate between the different pages/paths of our application.
 const routes = createRouter({
@@ -23,7 +25,9 @@ const routes = createRouter({
         // This path has multiple children so that the children paths can only be accessed from the main path for the dashboard, which can only be accessed when logged in.
         {path: '/user/dashboard', component: Dashboard, children: [
             {path: '', component: MainDash, name: 'dashboard'},
-            {path: 'profile', component: UserProfile, name: 'user_profile'}
+            {path: 'profile', component: UserProfile, name: 'user_profile'},
+            {path: 'articles', component: ViewArticles, name: 'admin_articles'},
+            {path: 'articles/add', component: AddArticles, name: 'add_articles'}
         ]}
     ]
 });
