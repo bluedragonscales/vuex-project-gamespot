@@ -1,18 +1,31 @@
 <template>
     <!-- ADD ARTICLE FORM INPUT COMPONENT -->
 
+    <!-- This input will show if the prop "element" is "input". -->
     <div v-if="element === 'input'">
-        <!-- A regular input form element. -->
+        <!-- The input box. -->
         <input 
-            class="form-control"
-            :type="type"
-            v-bind="field"
-            :class="{'is-invalid': errors.length !== 0}"
+            class="form-control" 
+            :type="type" 
+            v-bind="field" 
             :placeholder="placeholder">
 
         <!-- The error message. -->
-        <div v-if="errors.length !== 0">
-            <p class="alert alert-danger">{{errorMessage}}</p>
+        <p class="alert alert-danger">{{errorMessage}}</p>
+    </div>
+
+
+    <!-- This input will show if the prop "element" is "select". -->
+    <div v-if="element === 'select'">
+        <input 
+            class="form-control" 
+            :type="type" 
+            v-bind="field" 
+            :placeholder="placeholder" 
+            :class="{'is-invalid': errorList.length !== 0}">
+
+        <div v-if="errorList.length !== 0">
+            <p class="alert alert-danger">{{errorMsg}}</p>
         </div>
     </div>
 
@@ -23,7 +36,7 @@
 <script>
 
     export default {
-        props: ['field', 'errors', 'errorMessage', 'element', 'type', 'placeholder']
+        props: ['field', 'errorList', 'errorMsg', 'element', 'type', 'placeholder']
     }
 
 </script>
