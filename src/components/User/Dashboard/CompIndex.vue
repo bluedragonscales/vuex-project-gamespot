@@ -9,11 +9,11 @@
                     <ul class="nav flex-column">
                         <!-- The link to the user's dashboard. -->
                         <li class="nav-item">
-                            <router-link class="nav-link" :to="{name: 'dashboard'}">Dashboard</router-link>
+                            <router-link class="nav-link" :to="{name: 'dashboard'}"><dashboard-outlined></dashboard-outlined>Dashboard</router-link>
                         </li>
                         <!-- The link to the user's profile. -->
                         <li class="nav-item">
-                            <router-link class="nav-link" :to="{name: 'user_profile'}">Profile</router-link>
+                            <router-link class="nav-link" :to="{name: 'user_profile'}"><user-outlined></user-outlined>Profile</router-link>
                         </li>
                     </ul>
 
@@ -23,10 +23,10 @@
 
                         <ul class="nav flex-column mb-2">
                             <li class="nav-item">
-                                <router-link class="nav-link" :to="{name: 'admin_articles'}">Articles</router-link>
+                                <router-link class="nav-link" :to="{name: 'admin_articles'}"><profile-outlined></profile-outlined>Articles</router-link>
                             </li>
                             <li class="nav-item">
-                                <router-link class="nav-link" :to="{name: 'add_articles'}">Add Articles</router-link>
+                                <router-link class="nav-link" :to="{name: 'add_articles'}"><plus-square-outlined></plus-square-outlined>Add Article</router-link>
                             </li>
                         </ul>
                     </div>
@@ -44,3 +44,20 @@
     </div>
 
 </template>
+
+
+
+<script>
+    import {DashboardOutlined, UserOutlined, ProfileOutlined, PlusSquareOutlined} from '@ant-design/icons-vue';
+
+    export default {
+        components: {
+            // These are icons imported from the Ant Design library.
+            DashboardOutlined,
+            UserOutlined,
+            ProfileOutlined,
+            PlusSquareOutlined
+        }
+    }
+
+</script>
