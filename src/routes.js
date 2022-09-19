@@ -6,6 +6,9 @@ import Article from './components/Articles/CompArticle.vue';
 import SignIn from './components/User/SignIn.vue';
 import {getAuth, onAuthStateChanged} from 'firebase/auth';
 import store from './store';
+import Dashboard from './components/User/Dashboard/CompIndex.vue';
+import MainDash from './components/User/Dashboard/MainDashboard.vue';
+import UserProfile from './components/User/Dashboard/userpages/UserProfile.vue';
 
 // These are the vue routes to navigate between the different pages/paths of our application.
 const routes = createRouter({
@@ -16,7 +19,12 @@ const routes = createRouter({
         {path: '/', component: Home, name: 'home'},
         // This path has a dynamic variable "id".
         {path: '/article/:id', component: Article, name: 'article'},
-        {path: '/signin', component: SignIn, name: 'signin'}
+        {path: '/signin', component: SignIn, name: 'signin'},
+        // This path has multiple children so that the children paths can only be accessed from the main path for the dashboard, which can only be accessed when logged in.
+        {path: '/user/dashboard', component: Dashboard, children: [
+            {path: '', component: MainDash, name: 'dashboard'},
+            {path: 'profile', component: UserProfile, name: 'user_profile'}
+        ]}
     ]
 });
 
