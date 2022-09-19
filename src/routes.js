@@ -21,9 +21,10 @@ const routes = createRouter({
         {path: '/', component: Home, name: 'home'},
         // This path has a dynamic variable "id".
         {path: '/article/:id', component: Article, name: 'article'},
-        {path: '/signin', component: SignIn, name: 'signin'},
-        // This path has multiple children so that the children paths can only be accessed from the main path for the dashboard, which can only be accessed when logged in.
-        {path: '/user/dashboard', component: Dashboard, children: [
+        // The meta information on this route means the application has to check if the user is signed in or not to access this route.
+        {path: '/signin', component: SignIn, name: 'signin', meta: {signin: true}},
+        // This path has multiple children so that the children paths can only be accessed from the main path for the dashboard, which can only be accessed when logged in. The meta information states that the application has to check if the user is already authenticated before entering this route.
+        {path: '/user/dashboard', component: Dashboard, meta: {auth: true}, children: [
             {path: '', component: MainDash, name: 'dashboard'},
             {path: 'profile', component: UserProfile, name: 'user_profile'},
             {path: 'articles', component: ViewArticles, name: 'admin_articles'},
@@ -36,9 +37,20 @@ const routes = createRouter({
 // Created an instance of the "getAuth" library from firebase.
 const routeAuth = getAuth();
 
-// The start of a route guard.
-const validateCheck = (to, from, next) => {
-    next();
+// The route guards to guard against using the web domain as a way of getting past authentication.
+const validateCheck = (to, next) => {
+    if(to.meta.auth && !store.getters['auth/getAuthValue']) {
+        // If the route meta information states that the user has to be authenticated, but the getter value states that the user is NOT authenticated then they will be pushed to the signin route.
+        next('/signin');
+    } else if(to.meta.signin && store.getters['auth/getAuthValue']) {
+        // If the route meta info states that the user is indicated to be signed in, and the auth value getter states: it's true this user is authenticated/signed in, then the application will avoid the sign in page and push the user to the dashboard instead.
+        next('/user/dashboard');
+    } else {
+        // If all the routes are clear of guards then the user will continue to the route they originally requested.
+        next();
+    }
+
+    // Because the application is finished loading and finished going through the route guard checks, we set the loader component to false so that the user can use the application.
     store.commit('notify/setLoaderValue', false);
 }
 
