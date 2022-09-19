@@ -27,6 +27,16 @@ const authModule = {
             auth: false
         }
     },
+    getters: {
+        getAuthValue(state) {
+            // Returning the true or false value of the state variable "auth".
+            return state.auth;
+        },
+        getAdminValue(state) {
+            // Returning the true or false value of the state variable user's key "isAdmin".
+            return state.user.isAdmin;
+        }
+    },
     mutations: {
         setUser(state, payload) {
             // We'll use this mutation to set the newly created user information to the state values. The "...payload" is the information received from the "newUser" object created in the "signUp" action. The "...state.user" populates all of the fields in the default user object, but the null properties are replaced where the payload fills them in.
@@ -35,6 +45,11 @@ const authModule = {
                 ...payload
             }
             state.auth = true;
+        },
+        resetUser(state) {
+            // This mutation resets all of the state variables back to the original values.
+            state.user = DEFAULT_USER;
+            state.auth = false;
         }
     },
     actions: {
@@ -86,6 +101,7 @@ const authModule = {
                 }
 
             } catch(error) {
+                msgError(commit);
                 console.log(error);
             }
         },
@@ -113,6 +129,34 @@ const authModule = {
             } finally {
                 // After everything is done loading, whether it's a good response or we get an error, the loading icon will no longer be needed so it will go back to the main screen.
                 commit('notify/setLoaderValue', false, {root: true});
+            }
+        },
+        async autoSignIn({commit, dispatch}, payload) {
+            try {
+                // The variable autoData dispatches the action "getUserProfile" by passing in the uid that was received from the "beforeEach" function on the routes.js file.
+                const autoData = await dispatch('getUserProfile', payload.uid);
+                // The profile information recieved from the "getUserProfile" action is commited to the mutation "setUser"
+                commit('setUser', autoData);
+                // This action returns true for the validation of using the "then" block in the "beforeEach" function on the routes.js file.
+                return true;
+            } catch(error) {
+                msgError(commit);
+                console.log(error);
+            }
+        },
+        async signOut({commit}) {
+            try {
+                // Await the application to finish loading and then use the fireAuth object to get firebase's auth library method of signOut.
+                await fireAuth.signOut();
+                // Commit the mutation to reset all of the state variables back to original values.
+                commit('resetUser');
+                // Send a goodbye success message.
+                msgSuccess(commit, "Later, alligator!");
+                // Push the user out of the dashboard and back to home.
+                router.push('/');
+            } catch(error) {
+                msgError(commit);
+                console.log(error);
             }
         }
     }

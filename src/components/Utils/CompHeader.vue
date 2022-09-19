@@ -12,12 +12,33 @@
             <!-- The navigation section. -->
             <nav>
                 <ul class="text-white mt-3">
-                    <li><router-link to="/signin">Sign In</router-link></li>
-                    <li><span>Log Out</span></li>
-                    <li><router-link to="/user/dashboard">Dashboard</router-link></li>
+                    <li v-if="!authValue"><router-link to="/signin">Sign In</router-link></li>
+                    <li @click="signOut" v-else-if="authValue"><span>Log Out</span></li>
+                    <li v-if="authValue"><router-link to="/user/dashboard">Dashboard</router-link></li>
                 </ul>
             </nav>
         </div>
     </header>
 
 </template>
+
+
+
+<script>
+    import { mapGetters } from 'vuex';
+
+    export default {
+        methods: {
+            signOut() {
+                this.$store.dispatch('auth/signOut');
+            }
+        },
+        computed: {
+            ...mapGetters({
+                authValue: 'auth/getAuthValue',
+                adminValue: 'auth/getAdminValue'
+            })
+        }
+    }
+
+</script>
