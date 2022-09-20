@@ -327,7 +327,6 @@ header ul li span:hover {
     border-bottom: 1px solid #e5e5e5;
 }
 
-
 /* .error_label {
     color:red;
 } */
@@ -399,28 +398,26 @@ header ul li span:hover {
 } */
 
 
-/* .awesome_editor .ProseMirror {
+.awesome-editor .ProseMirror {
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius:.25rem;
     min-height: 250px;
-} */
+}
 
-/* .awesome_editor .btn_container {
-    border-top: 1px solid #dfdfdf;
+.awesome-editor, .btn-container {
     margin-top: 20px;
     padding: 10px 0px;
-} */
+}
 
-/* .awesome_editor .btn_container span {
+.btn-container p {
     background: var(--grape);
     color: white;
     display: inline-block;
     padding: 5px;
     margin-right: 5px;
     cursor: pointer;
-
-} */
+}
 
 /* .dashboard_form {
     width: 560px;

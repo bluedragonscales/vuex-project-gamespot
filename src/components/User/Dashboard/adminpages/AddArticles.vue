@@ -51,6 +51,9 @@
             </Field>
         </div>
 
+        <!-- WYSIWYG TIPTAP EDITOR -->
+        <w-y-s-i-w-y-g></w-y-s-i-w-y-g>
+
         <!-- RATING SELECT -->
         <div class="form-group">
             <Field name="rating" v-slot="{field, errors, errorMessage}" value="Select a rating">
@@ -94,6 +97,7 @@
     import {Form, Field} from 'vee-validate';
     import {addArticleSchema} from '../../../../tools/schemas.js';
     import FormElement from '../../../Utils/FormElement.vue';
+    import WYSIWYG from '../../../Utils/WhatYouSeeIWYG.vue';
 
     export default {
         data() {
@@ -106,7 +110,8 @@
             DashboardTitle,
             Form,
             Field,
-            FormElement
+            FormElement,
+            WYSIWYG
         },
         methods: {
             onSubmit(values) {
