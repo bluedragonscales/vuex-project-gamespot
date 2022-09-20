@@ -52,7 +52,16 @@
         </div>
 
         <!-- WYSIWYG TIPTAP EDITOR -->
-        <w-y-s-i-w-y-g></w-y-s-i-w-y-g>
+        <!-- the "@update" is listening for changes from the editor/child component and then calling the method "updateEditor" with those changes. -->
+        <w-y-s-i-w-y-g @update="updateEditor"></w-y-s-i-w-y-g>
+        <Field name="editor" v-model="veditor" v-slot="{field, errors, errorMessage}">
+            <!-- Created a hidden input so that we can do the same validation as the rest of the inputs. The input here will be hidden, but the error message will pop up if the editor is not populated. -->
+            <input type="hidden"
+                v-bind="field">
+            <div v-if="errors.length !== 0">
+                <p class="alert alert-danger">{{errorMessage}}</p>
+            </div>
+        </Field>
 
         <!-- RATING SELECT -->
         <div class="form-group">
@@ -103,7 +112,8 @@
         data() {
             return {
                 articleSchema: addArticleSchema,
-                ratings: [1, 2, 3, 4, 5]
+                ratings: [1, 2, 3, 4, 5],
+                veditor: ''
             }
         },
         components: {
@@ -116,6 +126,10 @@
         methods: {
             onSubmit(values) {
                 console.log(values);
+            },
+            updateEditor(value) {
+                this.veditor = value;
+                // console.log(value);
             }
         }
     }

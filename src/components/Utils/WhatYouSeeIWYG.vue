@@ -48,7 +48,8 @@
                 content: ``,
                 extensions: [StarterKit],
                 onUpdate: () => {
-                    console.log(this.editor.getHTML());
+                    // "$emit" sends information from child back to the parent. The other way around would be via props. Sending the HTML content that is written by the user inside the editor.
+                    this.$emit('update', this.editor.getText());
                 }
             });
         }

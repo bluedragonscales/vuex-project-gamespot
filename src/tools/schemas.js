@@ -12,7 +12,10 @@ const addArticleSchema = {
         .required("The excerpt of the game is required.")
         .min(100, "Make the excerpt bigger.")
         .max(350, "The excerpt is too long."),
-    editor: yup.string(),
+    editor: yup.string()
+        .required("Content for the article is required.")
+        .min(100, "Please make the article longer.")
+        .max(1500, "The content is too long."),
     rating: yup.string()
         .required("A rating for the game is required.")
         .notOneOf(['Select a rating'], "The rating should be a number."),
