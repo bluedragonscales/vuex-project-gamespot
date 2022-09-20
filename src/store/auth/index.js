@@ -35,6 +35,10 @@ const authModule = {
         getAdminValue(state) {
             // Returning the true or false value of the state variable user's key "isAdmin".
             return state.user.isAdmin;
+        },
+        getUserData(state) {
+            // Returning all the user data that has been filled out.
+            return state.user;
         }
     },
     mutations: {

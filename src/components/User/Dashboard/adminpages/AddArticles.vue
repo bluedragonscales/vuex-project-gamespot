@@ -93,7 +93,7 @@
 
 
         <!-- SUBMIT BUTTON -->
-        <button type="submit" class="btn btn-primary m-3">Add Article</button>
+        <button type="submit" class="btn btn-primary m-3" :disabled="loading">Add Article</button>
 
     </Form>
 
@@ -111,9 +111,13 @@
     export default {
         data() {
             return {
+                // The fields to be validated.
                 articleSchema: addArticleSchema,
+                // The ratings to add to the form.
                 ratings: [1, 2, 3, 4, 5],
-                veditor: ''
+                // The content typed into the wysiwyg editor.
+                veditor: '',
+                loading: false
             }
         },
         components: {
@@ -125,11 +129,17 @@
         },
         methods: {
             onSubmit(values) {
+                this.loading = true;
+                this.$store.dispatch('articles/addArticle', values).finally(() => {
+                    this.loading = false;
+                });
+
+                // When the form is submitted, all the values will be console logged.
                 console.log(values);
             },
             updateEditor(value) {
+                // Receiving all the editor text emmited by the child editor component.
                 this.veditor = value;
-                // console.log(value);
             }
         }
     }
