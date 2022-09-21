@@ -3,7 +3,7 @@
 import {msgError, msgSuccess} from '@/tools/vuex.js';
 import {db} from '@/firebase.js';
 import router from '@/routes.js';
-import {doc, setDoc, collection, serverTimestamp, query, limit, orderBy, startAfter, getDocs} from 'firebase/firestore';
+import {doc, setDoc, collection, serverTimestamp, query, limit, orderBy, startAfter, getDocs, getDoc} from 'firebase/firestore';
 
 
 
@@ -57,8 +57,8 @@ const articlesModule = {
                 // Show the success toast when the article is sent to the database successfully.
                 msgSuccess(commit, 'Congrats! Article saved!');
 
-                // The admin user gets pushed to the place where all of the articles are held so they can see the new one posted there.
-                router.push({name: 'admin_articles'});
+                // The admin user gets pushed to the place where all of the articles are held so they can see the new one posted there. The params creates a "soft" reload of the database information that shows on the front-end.
+                router.push({name: 'admin_articles', params: {reload: true}});
             } catch(error) {
                 msgError(commit);
                 console.log(error);
@@ -82,16 +82,56 @@ const articlesModule = {
                     ...doc.data()
                 }));
 
-                // Committing the placeholder for last visible article.
-                commit('setAdminLastVisible', lastVisibleArticle);
                 // Committing the limited retrieved articles to a state variable.
                 commit('setAdminArticles', dbArticles);
 
-                console.log(dbArticles);
-                console.log(lastVisibleArticle);
+                // Committing the placeholder for last visible article.
+                commit('setAdminLastVisible', lastVisibleArticle);
+
             } catch(error) {
                 msgError(commit);
                 console.log(error);
+            }
+        },
+        async loadMoreAdminArticles({commit, getters}, payload) {
+            try {
+                // If there is a visible article, get all the articles that are visible and store them in the "oldArticles" variable.
+                if(getters.getAdminLastVisible) {
+                    let oldArticles = getters.getAdminArticles;
+
+                    // Start a new query object for more articles that aren't already in the old articles object by starting after the last visible article and limiting the new articles by three.
+                    const newArticlesQuery = query(
+                        artCollection,
+                        orderBy('timestamp', 'desc'),
+                        startAfter(getters.getAdminLastVisible),
+                        limit(payload.limit)
+                    );
+
+                    // Make the new query for more articles to the database.
+                    const newQuerySnapshot = await getDocs(newArticlesQuery);
+
+                    // Get the new last visible article (because there are more now).
+                    const lastVisibleArticle = newQuerySnapshot.docs[newQuerySnapshot.docs.length - 1];
+
+                    // Store the new articles into this object and convert them to readable by mapping them.
+                    const newArticles = newQuerySnapshot.docs.map(doc => ({
+                        id: doc.id,
+                        ...doc.data()
+                    }));
+
+                    // Add the new articles to the old articles.
+                    commit('setAdminArticles', [
+                        ...oldArticles,
+                        ...newArticles
+                    ]);
+
+                    // Committing the placeholder for new last visible article.
+                    commit('setAdminLastVisible', lastVisibleArticle);
+
+                }
+            } catch(error) {
+                console.log(error);
+                msgError(commit);
             }
         }
     }
