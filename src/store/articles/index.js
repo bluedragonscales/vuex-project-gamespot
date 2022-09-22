@@ -3,7 +3,7 @@
 import {msgError, msgSuccess} from '@/tools/vuex.js';
 import {db} from '@/firebase.js';
 import router from '@/routes.js';
-import {doc, setDoc, collection, serverTimestamp, query, limit, orderBy, startAfter, getDocs, getDoc} from 'firebase/firestore';
+import {doc, setDoc, collection, serverTimestamp, query, limit, orderBy, startAfter, getDocs, getDoc, deleteDoc} from 'firebase/firestore';
 
 
 
@@ -17,7 +17,8 @@ const articlesModule = {
     state() {
         return {
             adminArticles: '',
-            adminLastVisible: ''
+            adminLastVisible: '',
+            mainHomeArticles: ''
         }
     },
     getters: {
@@ -26,6 +27,9 @@ const articlesModule = {
         },
         getAdminLastVisible(state) {
             return state.adminLastVisible;
+        },
+        getHomeArticles(state) {
+            return state.mainHomeArticles;
         }
     },
     mutations: {
@@ -34,6 +38,9 @@ const articlesModule = {
         },
         setAdminLastVisible(state, payload) {
             state.adminLastVisible = payload;
+        },
+        setHomeArticles(state, payload) {
+            state.mainHomeArticles = payload;
         }
     },
     actions: {
@@ -132,6 +139,46 @@ const articlesModule = {
             } catch(error) {
                 console.log(error);
                 msgError(commit);
+            }
+        },
+        async removeById({commit, state}, payload) {
+            try {
+                // Using the "deleteDoc" from the firebase library. The argument passed in is firebase's "doc" method to get the document, specifying it's from the database, in the collection called "articles", and receiving the payload that will be the id.
+                await deleteDoc(doc(db, 'articles', payload));
+
+                // Instead of creating another request to the database, we're removing the id of the deleted article from the saved list that shows on the front-end via ES6's filter function.
+                const newArticleList = state.adminArticles.filter(x => {
+                    // Accessing the list of articles in the state variable "adminArticles" and once the function arrives at the deleted id, it will leave it out of the list.
+                    return x.id != payload;
+                });
+
+                // Committing the new list of articles and showing a success message.
+                commit('setAdminArticles', newArticleList);
+                msgSuccess(commit, "Article successfully deleted.");
+
+            } catch(error) {
+                msgError(commit, error);
+            }
+        },
+        async mainGetArticles({commit}, payload) {
+            try {
+                // Creating the query parameters.
+                const homeQuery = query(artCollection, orderBy('timestamp', 'desc'), limit(payload.limit));
+
+                // Make the query request.
+                const homeQuerySnapshot = await getDocs(homeQuery);
+
+                // Map the response to the correct information needed for the front-end.
+                const homeArticles = homeQuerySnapshot.docs.map(doc => ({
+                    id: doc.id,
+                    ...doc.data()
+                }));
+
+                // Commit these main home articles to the state variable "mainHomeArticles" with a mutation.
+                commit('setHomeArticles', homeArticles);
+
+            } catch(error) {
+                msgError(commit, error);
             }
         }
     }

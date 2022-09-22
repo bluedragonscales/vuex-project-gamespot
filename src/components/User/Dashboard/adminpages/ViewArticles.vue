@@ -92,11 +92,9 @@
             // "mapActions" retrieves all actions available in the store. Here we've specified just the actions in the articles module and cherry picking the "getAdminArticles" action.
             ...mapActions('articles', [
                 'requestAdminArticles',
-                'loadMoreAdminArticles'
-            ]),
-            removeById(artId) {
-                console.log(artId);
-            }
+                'loadMoreAdminArticles',
+                'removeById'
+            ])
         }
     }
 

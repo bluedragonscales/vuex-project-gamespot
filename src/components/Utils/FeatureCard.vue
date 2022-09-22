@@ -8,11 +8,11 @@
             <a-card hoverable style="width: 100%;">
                 <template #cover>
                     <!-- Image at the top of the card. -->
-                    <img :src="`http://placebeard.it/1080/720?${article.id}`" alt="article image">
+                    <img :src="article.img" alt="article image">
                 </template>
                 <!-- Content of the card. Fake for now. -->
-                <h3>Lorem Title</h3>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque vitae eius laborum consequatur, dolores nihil dolor, deserunt excepturi sint aut, necessitatibus sed aspernatur praesentium temporibus quibusdam facere cum repellat saepe?</p>
+                <h3>{{article.title}}</h3>
+                <p>{{article.excerpt}}</p>
             </a-card>
         </router-link>
     </a-col>
