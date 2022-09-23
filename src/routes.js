@@ -1,5 +1,4 @@
 // ROUTES FILE
-/*eslint-disable*/
 import { createRouter, createWebHistory, START_LOCATION } from "vue-router";
 import Home from './components/Home/CompHome.vue';
 import Article from './components/Articles/CompArticle.vue';
@@ -11,6 +10,8 @@ import MainDash from './components/User/Dashboard/MainDashboard.vue';
 import UserProfile from './components/User/Dashboard/userpages/UserProfile.vue';
 import AddArticles from './components/User/Dashboard/adminpages/AddArticles.vue';
 import ViewArticles from './components/User/Dashboard/adminpages/ViewArticles.vue';
+import NotFound from './components/404Error.vue';
+
 
 // These are the vue routes to navigate between the different pages/paths of our application.
 const routes = createRouter({
@@ -29,7 +30,9 @@ const routes = createRouter({
             {path: 'profile', component: UserProfile, name: 'user_profile'},
             {path: 'articles', component: ViewArticles, name: 'admin_articles'},
             {path: 'articles/add', component: AddArticles, name: 'add_articles'}
-        ]}
+        ]},
+        // This path catches any routes that don't exist and shows a "not found" page.
+        {path: '/notFound(.*)*', component: NotFound, name: '404'}
     ]
 });
 

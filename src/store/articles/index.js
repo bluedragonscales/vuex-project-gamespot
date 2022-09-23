@@ -180,6 +180,21 @@ const articlesModule = {
             } catch(error) {
                 msgError(commit, error);
             }
+        },
+        async requestArticle({commit}, payload) {
+            try {
+                // To get a single article, we format the query to get a single doc from the "articles" collection. The payload will be the article id.
+                const singleDoc = await getDoc(doc(db, 'articles', payload));
+
+                // If the document requested from the database exists, then return the document data. If not, then return null.
+                if(singleDoc.exists()) {
+                    return singleDoc.data();
+                } else {
+                    return null;
+                }
+            } catch(error) {
+                msgError(commit);
+            }
         }
     }
 };

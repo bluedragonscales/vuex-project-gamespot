@@ -17,8 +17,10 @@
             <div class="editor" v-html="articleData.editor"></div>
         </div>
 
+        <hr>
+
         <div>
-            <p class="article-rating">Our rating: <strong>{{articleData.rating}}</strong></p>
+            <p class="article-rating mt-4">Our rating is <strong>{{articleData.rating}}</strong> out of 5</p>
         </div>
 
     </div>
@@ -32,22 +34,20 @@
     export default {
         data() {
             return {
-                articleData: {
-                    id: '123456',
-                    owner: {
-                        firstname: 'Fred',
-                        lastname: 'Dean',
-                        uid: 'wavwori948r27480v'
-                    },
-                    game: 'The Last Of Us 2',
-                    title: 'Lorem Title',
-                    rating: 5,
-                    timestamp: '01/01/01',
-                    img: 'http://placebeard.it/1080/720',
-                    excerpt: 'Magnam maiores ratione fugit delectus culpa, porro id possimus soluta assumenda alias vitae temporibus error! Quas deleniti provident beatae sit assumenda quam.',
-                    editor: '<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus et excepturi, impedit cum molestias eveniet laudantium, iste dignissimos consequuntur doloribus minima rem provident quo quia enim? Deleniti dolorum quas laudantium!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus et excepturi, impedit cum molestias eveniet laudantium, iste dignissimos consequuntur doloribus minima rem provident quo quia enim? Deleniti dolorum quas laudantium!</p><p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus et excepturi, impedit cum molestias eveniet laudantium, iste dignissimos consequuntur doloribus minima rem provident quo quia enim? Deleniti dolorum quas laudantium!</p>'
-                }
+                articleData: null
             }
+        },
+        mounted() {
+            // When this route is mounted, dispatch the action to get the single article data and pass in the route's id parameter because it is already available to us through the route params.
+            this.$store.dispatch('articles/requestArticle', this.$route.params.id).then((article) => {
+                // Then once the request has been fullfilled, if the article exists (the action did not return null) the data returned will be assigned to this component's data variable called "articleData";
+                if(article) {
+                    this.articleData = article;
+                } else {
+                    // If null is returned from the dispatch request then push the user to the 404 page.
+                    this.$route.push({name: '404'});
+                }
+            })
         }
     }
 
