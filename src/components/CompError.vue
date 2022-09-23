@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container p-top not-found">
+    <div class="container p-top text-center">
         <exclamation-circle-outlined></exclamation-circle-outlined>
         <h2 class="mt-3">Article not found.</h2>
     </div>
@@ -24,12 +24,12 @@
 <style scoped>
 
     .anticon {
-        font-size: 174px;
-        color: rgb(220, 60, 60);
+        font-size: 11rem;
+        color: rgb(255, 72, 72);
     }
 
     h2 {
-        font-size: 4rem;
+        font-size: 3rem;
         font-weight: 100;
     }
 

@@ -2,7 +2,7 @@
 /* eslint-disable */
 import {db, fireAuth} from '../../firebase';
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
-import {doc, setDoc, getDoc} from 'firebase/firestore';
+import {doc, setDoc, getDoc, updateDoc} from 'firebase/firestore';
 import router from '../../routes';
 import {msgError, msgSuccess} from '../../tools/vuex.js';
 import fbErrors from '../../tools/fbalerts.js';
@@ -39,6 +39,9 @@ const authModule = {
         getUserData(state) {
             // Returning all the user data that has been filled out.
             return state.user;
+        },
+        getUserId(state) {
+            return state.user.uid;
         }
     },
     mutations: {
@@ -161,6 +164,35 @@ const authModule = {
             } catch(error) {
                 msgError(commit);
                 console.log(error);
+            }
+        },
+        async updateProfile ({commit, getters}, payload) {
+            try {
+                // Formatting the type of doc to retrieve from the database.
+                const userRef = doc(db, 'users', getters.getUserId);
+
+                // Get the current user data to apply a check.
+                const currentUser = getters.getUserData;
+
+                // Checking to see if there are any real changes. If so, then do the update. If not then don't do the update.
+                if(payload.firstname === currentUser.firstname && payload.lastname === currentUser.lastname) {
+                    msgError(commit, "There are no changes here.");
+                    return false;
+                } else {
+                    // Making the request to update the document in the database and passing in the payload as the information that needs to update.
+                    await updateDoc(userRef, {
+                        ...payload
+                    });
+
+                    // Committing the new information to the state information with a mutation.
+                    commit('setUser', payload);
+
+                    // Sending a success message.
+                    msgSuccess(commit, 'Your info has been updated.');
+                }
+
+            } catch(error) {
+                msgError(commit, error);
             }
         }
     }

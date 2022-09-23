@@ -45,7 +45,7 @@
                     this.articleData = article;
                 } else {
                     // If null is returned from the dispatch request then push the user to the 404 page.
-                    this.$route.push({name: '404'});
+                    this.$router.push({name: '404'});
                 }
             })
         }
