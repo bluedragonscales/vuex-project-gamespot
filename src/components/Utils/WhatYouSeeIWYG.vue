@@ -43,6 +43,7 @@
         components: {
             EditorContent
         },
+        props: ['content'],
         mounted() {
             this.editor = new Editor({
                 content: ``,
@@ -52,6 +53,12 @@
                     this.$emit('update', this.editor.getText());
                 }
             });
+
+            // If the editor is empty but there is content present, then fill the editor with the content (will be empty on add article, but will be filled with edit article).
+            if(this.content) {
+                this.editor.commands.setContent(this.content);
+                this.$emit('update', this.editor.getText());
+            }
         }
     }
 

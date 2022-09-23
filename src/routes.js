@@ -11,6 +11,7 @@ import UserProfile from './components/User/Dashboard/userpages/UserProfile.vue';
 import AddArticles from './components/User/Dashboard/adminpages/AddArticles.vue';
 import ViewArticles from './components/User/Dashboard/adminpages/ViewArticles.vue';
 import NotFound from './components/CompError.vue';
+import AdminEditArticle from './components/User/Dashboard/adminpages/AdminEdit.vue';
 
 
 // These are the vue routes to navigate between the different pages/paths of our application.
@@ -29,7 +30,8 @@ const routes = createRouter({
             {path: '', component: MainDash, name: 'dashboard'},
             {path: 'profile', component: UserProfile, name: 'user_profile'},
             {path: 'articles', component: ViewArticles, name: 'admin_articles'},
-            {path: 'articles/add', component: AddArticles, name: 'add_articles'}
+            {path: 'articles/add', component: AddArticles, name: 'add_articles'},
+            {path: 'articles/edit/:id', component: AdminEditArticle, name: 'edit_articles'}
         ]},
         // This path catches any articles that don't exist and shows a "not found" page.
         {path: '/notFound(.*)*', component: NotFound, name: '404'}

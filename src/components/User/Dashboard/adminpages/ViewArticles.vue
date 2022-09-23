@@ -39,6 +39,11 @@
                 </a-popconfirm>
             </template>
 
+            <!-- The column for the edit button. -->
+            <template #edit="{record}">
+                <router-link :to="{name: 'edit_articles', params: {id: record.id}}">Edit Article</router-link>
+            </template>
+
             <!-- A link to go to the add articles form as a header to the table. -->
             <template #title>
                 <router-link :to="{name: 'add_articles'}">
@@ -52,7 +57,11 @@
         </a-table>
 
         <!-- Button to load more articles than the initial limit. -->
-        <button class="btn btn-secondary mt-3" @click="loadMoreAdminArticles({limit: 1})">Load More Articles</button>
+        <button class="btn btn-secondary mt-3" @click="loadMoreAdminArticles({limit: 3})">Load More Articles</button>
+    </div>
+
+    <div v-else>
+        <loader></loader>
     </div>
 
 </template>
@@ -61,6 +70,7 @@
 <script>
     import DashboardTitle from '../../../Utils/DashboardTitle.vue';
     import { mapActions } from 'vuex';
+    import Loader from '../../../Utils/CompLoader.vue';
 
     export default {
         data() {
@@ -70,7 +80,8 @@
             }
         },
         components: {
-            DashboardTitle
+            DashboardTitle,
+            Loader
         },
         computed: {
             retrieveAdminArticles() {
@@ -85,7 +96,7 @@
             // This will keep the articles page from reloading so all the articles that were loaded (past the initial limit) will stay on the page. It's blocking the store from reloading the request for articles to the front-end. The "or reload" part lets the db information reload.
             if(!this.retrieveAdminArticles || reload) {
                 // When the application is mounted firestore will send us three articles through the "getAdminArticles" action we retrieved with "mapActions".
-                this.requestAdminArticles({limit:1});
+                this.requestAdminArticles({limit:3});
             }
         },
         methods: {
@@ -121,6 +132,10 @@
             title: '',
             slots: {customRender: 'delete'}
         },
+        {
+            title: '',
+            slots: {customRender: 'edit'}
+        }
     ]
 
 </script>
