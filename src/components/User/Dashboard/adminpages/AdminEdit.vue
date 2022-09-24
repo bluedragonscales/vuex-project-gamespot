@@ -132,13 +132,14 @@
         },
         methods: {
             onSubmit(values) {
-                // this.loading = true;
-                // this.$store.dispatch('articles/addArticle', values).finally(() => {
-                //     this.loading = false;
-                // });
-
-                // When the form is submitted, all the values will be console logged.
-                console.log(values);
+                this.loading = true;
+                this.$store.dispatch('articles/updateArticle', {
+                    values,
+                    id: this.$route.params.id
+                }).finally(() => {
+                    this.loading = false;
+                    this.$router.push('/user/dashboard');
+                });
             },
             updateEditor(value) {
                 // Receiving all the editor text emmited by the child editor component.
