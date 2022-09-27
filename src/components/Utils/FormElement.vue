@@ -1,5 +1,5 @@
 <template>
-    <!-- ADD ARTICLE FORM INPUT COMPONENT -->
+    <!-- FORM INPUT COMPONENT -->
 
     <!-- This input will show if the prop "element" is "input". -->
     <div v-if="element === 'input'">

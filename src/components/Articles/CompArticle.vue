@@ -1,7 +1,7 @@
 <template>
     <!-- ARTICLE PAGE COMPONENT -->
 
-    <!-- This is the content of the individual article for each game. -->
+    <!-- This is the content of the individual article for each game. All of the article data comes from the mounted action that requests the article data from the database and then saves it to the data variable "articleData". -->
     <div class="container p-top article-page" v-if="articleData">
         <div><p class="game-tag">{{articleData.game}}</p></div>
 

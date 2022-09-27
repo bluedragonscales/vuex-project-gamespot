@@ -1,4 +1,5 @@
 <template>
+    <!-- WHAT YOU SEE IS WHAT YOU GET COMPONENT -->
 
     <div class="awesome-editor mt-3">
         <div v-if="editor" class="btn-container">

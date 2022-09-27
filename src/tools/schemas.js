@@ -1,6 +1,8 @@
+// SCHEMA VALIDATION MODULE
+
 import * as yup from 'yup';
 
-
+// Validating all of the schema needed for all forms in the app with the "yup" library.
 const addArticleSchema = {
     game: yup.string()
         .required("The name of the game is required."),
@@ -24,7 +26,7 @@ const addArticleSchema = {
 };
 
 
-
+// Exporting the validated schema to use for the forms in the web app.
 export {
     addArticleSchema
 };

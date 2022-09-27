@@ -1,4 +1,5 @@
 <template>
+    <!-- ADMIN VIEW ARTICLES COMPONENT -->
 
     <dashboard-title title="Articles"></dashboard-title>
 

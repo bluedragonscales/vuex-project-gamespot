@@ -1,5 +1,6 @@
 <template>
     <!-- APP HEADER COMPONENT -->
+    
     <header>
         <div class="container header-container p-4 nav">
             <!-- The lefthand logo at the top. -->

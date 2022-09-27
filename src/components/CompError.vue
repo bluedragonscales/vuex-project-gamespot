@@ -1,4 +1,5 @@
 <template>
+    <!-- ERROR PAGE COMPONENT -->
 
     <div class="container p-top text-center">
         <exclamation-circle-outlined></exclamation-circle-outlined>

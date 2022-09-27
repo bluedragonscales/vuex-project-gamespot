@@ -1,5 +1,5 @@
 // ARTICLES MODULE INDEX
-/* eslint-disable */
+
 import {msgError, msgSuccess} from '@/tools/vuex.js';
 import {db} from '@/firebase.js';
 import router from '@/routes.js';
@@ -22,6 +22,7 @@ const articlesModule = {
         }
     },
     getters: {
+        // Getting the information needed for the front-end.
         getAdminArticles(state) {
             return state.adminArticles;
         },
@@ -33,6 +34,7 @@ const articlesModule = {
         }
     },
     mutations: {
+        // Setting the information in the state variables.
         setAdminArticles(state, articlesPayload) {
             state.adminArticles = articlesPayload;
         },
@@ -44,6 +46,7 @@ const articlesModule = {
         }
     },
     actions: {
+        // Making actions to retrieve information from API and/or the database.
         async addArticle({commit, rootGetters}, payload) {
             try {
                 // Retrieving the user data from the auth module.
@@ -198,12 +201,15 @@ const articlesModule = {
         },
         async updateArticle({commit}, payload) {
             try {
+                // Create an instance of the reference to the collection in the database so the request knows where to go to get the information.
                 const articleRef = doc(db, 'articles', payload.id);
 
+                // Make the request from the database, passing in the values from the edit article form.
                 await updateDoc(articleRef, {
                     ...payload.values
                 });
 
+                // Success message when the article is updated successfully in the database.
                 msgSuccess(commit, 'Article updated successfully.');
                 
             } catch(error) {

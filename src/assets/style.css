@@ -67,26 +67,11 @@ header ul li span:hover {
     color: #0dcaf0;
 }
 
-/* footer {
-    background: #191919;
-    color: #ffffff;
-} */
-
-/* footer .logo {
-    font-family: 'Bungee Inline', cursive;
-    font-size: 30px;
-    line-height: 121px;
-    text-align: center;
-} */
 
 
 
 
 /* CAROUSEL SLIDER STYLING */
-/* .carousel__pagination {
-    padding-left: 0px;
-} */
-
 .slider-backg {
     height: 560px;
     width: 100%;
@@ -111,31 +96,11 @@ header ul li span:hover {
     font-weight: 100;
 }
 
-/* .item h4 {
-    font-size: 25px;
-    font-weight: bold;
-    color: white;
-} */
-
 
 
 
 
 /* FEATURED CARD STYLING */
-/* .home_container {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-} */
-  
-/* .home_container .md-card {
-    box-sizing: border-box;
-    margin-bottom: 10px;
-    width: calc(1/3*100% - (1 - 1/3)*10px);
-} */
-
 .featured-home {
     background-color: var(--light);
     padding: 20px
@@ -149,11 +114,6 @@ header ul li span:hover {
 
 
 /* SIGN IN STYLING */
-/* .signin-container {
-    padding-top: 200px;
-    height: 90vh;
-} */
-
 .signin-container h1 {
     text-align: center;
     color: #797979;
@@ -166,13 +126,6 @@ header ul li span:hover {
     box-sizing: border-box;
     padding: 20px;
 }
-
-/* .signin-container label {
-    display: block;
-    font-size: 17px;
-    font-weight: 300;
-    margin-bottom: 12px;
-} */
 
 .signin-container input {
     margin-top: 2rem;
@@ -287,32 +240,11 @@ header ul li span:hover {
     font-size: 2.5rem;
 }
   
-  /* @media (max-width: 767.98px) {
-    .sidebar {
-      top: 5rem;
-    }
-  } */
-  
-  /* .sidebar-sticky {
-    position: relative;
-    top: 0;
-    height: calc(100vh - 48px);
-    padding-top: .5rem;
-    overflow-x: hidden;
-    overflow-y: auto;
-  } */
-  
 .nav-link {
     font-weight: 500;
     color: #333;
     font-size: 1.4rem;
 }
-  
-  /* .feather {
-    margin-right: 4px;
-    color: #727272;
-  } */
-  
 
 .nav-link:hover .feather, .nav-link.active .feather {
     color: inherit;
@@ -327,76 +259,10 @@ header ul li span:hover {
     border-bottom: 1px solid #e5e5e5;
 }
 
-/* .error_label {
-    color:red;
-} */
-
-/* .md-dialog {
-    background: #ffffff;
-    box-sizing: border-box;
-    padding: 20px;
-}     */
-
-/* .md-dialog .md-button {
-    color: #607D8B;
-} */
-
-/* .md-table-cell {
-    max-width: 290px;
-} */
-
-/* .post_succesfull{
-    font-size: 20px;
-    background: #4CAF50;
-    color: #ffffff;
-    padding: 10px;
-    text-align: center;
-    margin-top: 20px;
-} */
-
-/* .dashboard_welcome {
-    height: 70vh;
-    font-size: 20px;
-} */
-
-/* .load_more {
-    cursor:pointer;
-    text-align: center;
-    margin: 20px;
-} */
-
-/* .load_more .button_default { 
-    font-size: 21px;
-    line-height: 33px;
-    font-weight: 800;
-    background: #2a2a2a;
-}    */
-
-/* .post_delete{ 
-    color: #F44336;
-    font-weight: 700;  
-} */
-
-/* .not-found {
-    text-align: center;
-} */
-
 .anticon {
     margin-right: 10px;
     font-size: 2rem;
 }
-
-/* .not-found .anticon {
-    font-size: 174px;
-    color: #dc3545;
-} */
-
-/* .not-found h1{
-    margin-top: 20px;
-    font-size: 61px;
-    font-weight: 100;
-} */
-
 
 .awesome-editor .ProseMirror {
     padding: 10px;
@@ -419,51 +285,11 @@ header ul li span:hover {
     cursor: pointer;
 }
 
-/* .dashboard_form {
-    width: 560px;
-    margin-bottom: 100px;
-} */
-
-/* .dashboard_form .input_field input{
-    width: 100%;
-    font-size: 20px;
-    border-radius: 3px;
-    box-shadow: none;
-    border: 1px solid #dbdbdb;
-    background: #f6f6f6;
-    padding: 10px;
-} */
-
-/* .dashboard_form .input_field select {
-    width: 100%;
-    font-size: 20px;
-    border: 1px solid #dbdbdb;
-} */
-
-/* .dashboard_form h1 {
-    color: #434343;
-    text-transform: uppercase;
-    border-bottom: 1px solid #b8b8b8;
-    margin: 20px 0px;
-    line-height: 51px;
-} */
-
-
 
 
 
 
 /* PAGE LOADER STYLING */
-/* .small_link {
-    font-size: 12px;
-    background: #F44336;
-} */
-
-/* .button_default:hover {
-    background: #2b2b2b;;
-    color: #ffffff;
-} */
-
 .page-loader {
     text-align: center;
     padding-top: 25vh

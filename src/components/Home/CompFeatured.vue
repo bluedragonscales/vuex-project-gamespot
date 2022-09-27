@@ -1,4 +1,5 @@
 <template>
+    <!-- FEATURED ARTICLES SECTION COMPONENT -->
 
     <div class="featured-home">
         <!-- In the grid system the gutter attribute of 16 is small spacing. -->

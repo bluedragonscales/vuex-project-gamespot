@@ -1,7 +1,9 @@
 <template>
+    <!-- USER PROFILE COMPONENT -->
 
     <dashboard-title title="Profile"></dashboard-title>
 
+    <!-- These inputs are used to update the first and last name of the user. We draw from the form inputs component instead of recreating the inputs. -->
     <div v-if="userData">
         <Form @submit="onSubmit" :validation-schema="profileSchema">
             <!-- FIRSTNAME INPUT -->
@@ -65,11 +67,13 @@
         },
         computed: {
             userData() {
+                // Returning the stringified user data to show the updated first and last names.
                 return JSON.parse(JSON.stringify(this.$store.getters['auth/getUserData']));
             }
         },
         methods: {
             onSubmit(values) {
+                // Dispatching the action to update the profile first and last names.
                 this.$store.dispatch('auth/updateProfile', values);
             }
         }

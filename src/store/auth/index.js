@@ -1,5 +1,5 @@
 // AUTHENTICATION MODULE INDEX
-/* eslint-disable */
+
 import {db, fireAuth} from '../../firebase';
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
 import {doc, setDoc, getDoc, updateDoc} from 'firebase/firestore';
@@ -41,6 +41,7 @@ const authModule = {
             return state.user;
         },
         getUserId(state) {
+            // Returning the user's id.
             return state.user.uid;
         }
     },

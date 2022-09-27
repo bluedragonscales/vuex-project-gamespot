@@ -103,7 +103,6 @@
 
 
 <script>
-    /* eslint-disable */
     import DashboardTitle from '../../../Utils/DashboardTitle.vue';
     import {Form, Field} from 'vee-validate';
     import {addArticleSchema} from '../../../../tools/schemas.js';
@@ -133,6 +132,7 @@
         methods: {
             onSubmit(values) {
                 this.loading = true;
+                // Dispatching the action to update the article, passing in the form values and the dynamic route id as the params.
                 this.$store.dispatch('articles/updateArticle', {
                     values,
                     id: this.$route.params.id

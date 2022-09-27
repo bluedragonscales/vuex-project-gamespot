@@ -1,5 +1,6 @@
 <template>
     <!-- LOADER ICON COMPONENT -->
+    
     <div>
         <!-- This premade html code was copied from "loading.io/css/" -->
         <div class="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>

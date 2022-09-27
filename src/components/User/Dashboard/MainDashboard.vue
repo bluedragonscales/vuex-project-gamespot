@@ -1,4 +1,5 @@
 <template>
+    <!-- DASHBOARD COMPONENT -->
 
     <dashboard-title title="Dashboard"></dashboard-title>
 
